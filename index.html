@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Editzorro</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="static/js/app.js"></script>
+  </head>
+
+  <body>
+    <div class="group" style="width:360px;height:80px;left:8px;top:8px">
+      <h2 id="profile-name"></h2>
+      <button onclick="Core.buttonNew();">New</button>
+      <button onclick="Core.buttonLoad();">Load</button>
+      <button onclick="Core.buttonSave();">Save</button>
+      <button onclick="Core.buttonSaveAs();">Save As</button>
+      <input style="display:none" id="loadProfileDialog" type="file" accept=".json"/>
+      <input style="display:none" id="saveProfileDialog" type="file" nwsaveas/>
+    </div>
+
+    <div class="group" style="width:520px;height:160px;left:390px;top:8px">
+      <input type="text" style="position:absolute;left:4px;top:4px;width:180px" id="keymap-label-edit" oninput="Core.inputKeymapLabel();" placeholder="Label"></input>
+      <select multiple style="position:absolute;left:4px;top:28px;width:180px;height:110px" id="keymap-select" onclick="Core.selectKeymap();"></select>
+      <select multiple style="position:absolute;left:208px;top:4px;width:280px;height:130px" id="bind-select" onclick="Core.selectBind();"></select>
+      <button onclick="Core.buttonAddKeymap();" style="position:absolute;top:140px;left:0;width:128px">Add Keymap</button>
+      <button onclick="Core.buttonRemoveKeymap();" style="position:absolute;top:140px;left:136;width:128px">Remove Keymap</button>
+      <button onclick="Core.buttonRemoveBind();" style="position:absolute;top:140px;left:272;width:128px">Remove Bind</button>
+    </div>
+
+    <div class="group" style="width:792px;height:400px;left:8px;top:184px" id="group_buttons">
+      <span id="button-info" style="position:absolute;width:100%;top:380px;text-align:center"></span>
+      <button onclick="Core.cancelBind();" style="position:absolute;top:380px;left:696px">Deselect</button>
+    </div>
+
+    <div class="group" style="width:320px;height:160px;left:928px;top:8px">
+      <!-- Label -->
+      <input type="text" style="position:absolute;left:4px;top:4px;width:180px" id="bind-label-edit" oninput="Core.inputBindRefresh();" placeholder="Label"></input>
+      <!-- Target -->
+      <span style="position:absolute;left:200px;top:4px" id="bind-target"></span>
+      <!-- Ctrl -->
+      <label style="position:absolute;left:20px;top:40px" for="bind-ctrl">Ctrl</label>
+      <input type="checkbox" style="position:absolute;left:4px;top:40px" id="bind-ctrl" onclick="Core.inputBindRefresh();"/>
+      <!-- Shift -->
+      <label style="position:absolute;left:80px;top:40px" for="bind-shift">Shift</label>
+      <input type="checkbox" style="position:absolute;left:64px;top:40px" id="bind-shift" onclick="Core.inputBindRefresh();"/>
+      <!-- Alt -->
+      <label style="position:absolute;left:140px;top:40px" for="bind-alt">Alt</label>
+      <input type="checkbox" style="position:absolute;left:124px;top:40px" id="bind-alt" onclick="Core.inputBindRefresh();"/>
+      <!-- Rapidfire -->
+      <input type="text" style="position:absolute;left:4px;top:96px;width:64px" id="bind-rapidfire" oninput="Core.inputBindRefresh();" placeholder="Rapidfire"></input>
+      <!-- Toggle -->
+      <label style="position:absolute;left:88px;top:96px" for="bind-toggle">Toggle</label>
+      <input type="checkbox" style="position:absolute;left:72px;top:96px" id="bind-toggle" onclick="Core.inputBindRefresh();"/>
+    </div>
+  </body>
+
+  <div class="group" style="width:180px;height:240px;left:928px;top:184px">
+    <select style="position:absolute;left:4px;top:4px;width:160px" id="hw-select-mice" onclick="Core.inputButtonLayoutRefresh();">
+      <option>[Mice]</option>
+    </select>
+    <select style="position:absolute;left:4px;top:32px;width:160px" id="hw-select-lhc" onclick="Core.inputButtonLayoutRefresh();">
+      <option>[LHC]</option>
+    </select>
+  </div>
+</html>

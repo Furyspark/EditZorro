@@ -1,0 +1,24 @@
+body {
+  background-color: #aaaaaa;
+  margin: 0;
+  padding: 0;
+}
+
+.group {
+  position: absolute;
+  border: 1px solid #606060;
+  margin: 8px;
+  padding: 4px;
+}
+
+button {
+  width: 80px;
+  height: 20px;
+}
+
+#profile-name {
+  font-family: monospace;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,58 @@
+{
+    "version": "0.1.0",
+    "additional_trust_anchors": [
+        ""
+    ],
+    "name": "editzorro",
+    "window": {
+        "toolbar": false,
+        "exe_icon": "editzorro.png",
+        "kiosk_emulation": false,
+        "as_desktop": false,
+        "height": 720,
+        "title": "editzorro",
+        "kiosk": false,
+        "width": 1280,
+        "resizable": false,
+        "visible": true,
+        "fullscreen": false,
+        "transparent": false,
+        "icon": "editzorro.png",
+        "always_on_top": false,
+        "show": true,
+        "show_in_taskbar": true,
+        "frame": true
+    },
+    "main": "index.html",
+    "scripts": {
+        "test": "node compile.js & nw ."
+    },
+    "devDependencies": {
+        "concatenate-files": "^0.1.1"
+    },
+    "single-instance": true,
+    "app_name": "editzorro",
+    "webexe_settings": {
+        "custom_script": "",
+        "windows-x64": true,
+        "sdk_build": false,
+        "download_dir": "C:/Users/Tijmen/AppData/Local/Web2Executable/Web2Executable/files/downloads",
+        "linux-x64": false,
+        "force_download": false,
+        "mac-x64": false,
+        "export_dir": "output",
+        "windows-x32": true,
+        "nw_compression_level": 0,
+        "nw_version": "0.14.3",
+        "uncompressed_folder": false,
+        "linux-x32": false,
+        "mac-x32": false
+    },
+    "webkit": {
+        "plugin": false,
+        "page-cache": false,
+        "java": false
+    },
+    "private": true,
+    "nodejs": true
+}
