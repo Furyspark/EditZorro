@@ -1,5 +1,6 @@
 var fs = require("fs");
 var path = require("path");
+var dialog = require("electron").remote.dialog;
 
 function Core() {
   console.log("This is a static class.");
@@ -54,13 +55,22 @@ Core.createNewProfile = function() {
 }
 
 Core.buttonLoad = function() {
-  var elem = document.getElementById("loadProfileDialog");
-  elem.addEventListener("change", function chooseFile(e) {
-    this.removeEventListener("change", chooseFile, false);
-    Core.loadProfile(this.value);
-    this.value = "";
-  }, false);
-  elem.click();
+  dialog.showOpenDialog({
+    title: "Select Profile",
+    filter: [
+      { name: "Profiles", extensions: ["json"] }
+    ],
+    properties: ["openFile", "createDirectory"]
+  }, function(filenames) {
+    if(filenames && filenames.length > 0) Core.loadProfile(filenames[0]);
+  });
+  // var elem = document.getElementById("loadProfileDialog");
+  // elem.addEventListener("change", function chooseFile(e) {
+  //   this.removeEventListener("change", chooseFile, false);
+  //   Core.loadProfile(this.value);
+  //   this.value = "";
+  // }, false);
+  // elem.click();
 }
 
 Core.buttonSave = function() {
@@ -73,13 +83,21 @@ Core.buttonSave = function() {
 }
 
 Core.buttonSaveAs = function() {
-  var elem = document.getElementById("saveProfileDialog");
-  elem.addEventListener("change", function chooseFile(e) {
-    this.removeEventListener("change", chooseFile, false);
-    Core.saveProfile(this.value);
-    this.value = "";
-  }, false);
-  elem.click();
+  dialog.showSaveDialog({
+    title: "Save Profile",
+    filters: [
+      { name: "Profiles", extensions: ["json"] }
+    ]
+  }, function(filename) {
+    if(filename) Core.saveProfile(filename);
+  });
+  // var elem = document.getElementById("saveProfileDialog");
+  // elem.addEventListener("change", function chooseFile(e) {
+  //   this.removeEventListener("change", chooseFile, false);
+  //   Core.saveProfile(this.value);
+  //   this.value = "";
+  // }, false);
+  // elem.click();
 }
 
 Core.buttonAddKeymap = function() {
@@ -191,6 +209,7 @@ Core.selectKeymap = function() {
       bind.origin = this.waitForInput.keycode.toLowerCase();
       bind.hwid = this.waitForInput.hwid;
       bind.keymap = keymap;
+      bind.refresh();
 
       for(var a = 0;a < keymaps.length;a++) {
         keymaps[a].deselect();
