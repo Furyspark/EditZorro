@@ -91,13 +91,6 @@ Core.buttonSaveAs = function() {
   }, function(filename) {
     if(filename) Core.saveProfile(filename);
   });
-  // var elem = document.getElementById("saveProfileDialog");
-  // elem.addEventListener("change", function chooseFile(e) {
-  //   this.removeEventListener("change", chooseFile, false);
-  //   Core.saveProfile(this.value);
-  //   this.value = "";
-  // }, false);
-  // elem.click();
 }
 
 Core.buttonAddKeymap = function() {
@@ -296,6 +289,9 @@ Core.inputBindRefresh = function() {
 
     var elem = document.getElementById("bind-toggle");
     if(!elem.disabled) bind.toggle = elem.checked;
+
+    var elem = document.getElementById("bind-jra");
+    if(!elem.disabled) bind.jra = elem.checked;
 
     this.refresh();
   }

@@ -38,6 +38,8 @@ Saver.parseBind = function(rawBind, newBind, profile) {
   if(typeof rawBind.toggle === "string") newBind.toggle = Number(rawBind.toggle);
   if(typeof rawBind.toggle === "number") newBind.toggle = rawBind.toggle;
 
+  if(rawBind.jra) newBind.jra = rawBind.jra;
+
   newBind.hwid = rawBind.harware_id;
   newBind.label = rawBind.label;
   newBind.origin = rawBind.origin;
@@ -70,7 +72,7 @@ Saver.stringifyProfile = function(profile) {
 }
 
 Saver.parseStringifyBind = function(bind, profile) {
-  var raw = { alt: 0, ctrl: 0, shift: 0, hardware_id: "", rapidfire: 0, toggle: 0, label: "", origin: "", key: "" };
+  var raw = { alt: 0, ctrl: 0, shift: 0, hardware_id: "", rapidfire: 0, toggle: 0, label: "", origin: "", key: "", jra: false };
   if(bind.alt) raw.alt = 1;
   if(bind.ctrl) raw.ctrl = 1;
   if(bind.shift) raw.shift = 1;
@@ -80,6 +82,7 @@ Saver.parseStringifyBind = function(bind, profile) {
   raw.label = bind.label;
   raw.origin = bind.origin;
   raw.key = bind.key;
+  raw.jra = bind.jra;
 
   if(bind.keymap) {
     for(var a = 0;a < profile.keymaps.length;a++) {

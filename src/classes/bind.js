@@ -19,6 +19,7 @@ Bind.prototype.initMembers = function() {
   this.origin = "";
   this.rapidfire = 0;
   this.toggle = false;
+  this.jra = false;
   this.label = "";
   this.hwid = "";
   this.keymap = null;

@@ -125,6 +125,10 @@ Profile.prototype.selectBind = function(bind) {
   elem.disabled = false;
   elem.checked = bind.toggle;
 
+  var elem = document.getElementById("bind-jra");
+  elem.disabled = false;
+  elem.checked = bind.jra;
+
   var elem = document.getElementById("bind-rapidfire");
   elem.disabled = false;
   elem.value = bind.rapidfire.toString();
@@ -152,6 +156,10 @@ Profile.prototype.deselectBind = function() {
   elem.innerHTML = "";
 
   var elem = document.getElementById("bind-toggle");
+  elem.disabled = true;
+  elem.checked = false;
+
+  var elem = document.getElementById("bind-jra");
   elem.disabled = true;
   elem.checked = false;
 

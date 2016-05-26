@@ -91,13 +91,6 @@ Core.buttonSaveAs = function() {
   }, function(filename) {
     if(filename) Core.saveProfile(filename);
   });
-  // var elem = document.getElementById("saveProfileDialog");
-  // elem.addEventListener("change", function chooseFile(e) {
-  //   this.removeEventListener("change", chooseFile, false);
-  //   Core.saveProfile(this.value);
-  //   this.value = "";
-  // }, false);
-  // elem.click();
 }
 
 Core.buttonAddKeymap = function() {
@@ -297,6 +290,9 @@ Core.inputBindRefresh = function() {
     var elem = document.getElementById("bind-toggle");
     if(!elem.disabled) bind.toggle = elem.checked;
 
+    var elem = document.getElementById("bind-jra");
+    if(!elem.disabled) bind.jra = elem.checked;
+
     this.refresh();
   }
 }
@@ -475,6 +471,8 @@ Saver.parseBind = function(rawBind, newBind, profile) {
   if(typeof rawBind.toggle === "string") newBind.toggle = Number(rawBind.toggle);
   if(typeof rawBind.toggle === "number") newBind.toggle = rawBind.toggle;
 
+  if(rawBind.jra) newBind.jra = rawBind.jra;
+
   newBind.hwid = rawBind.harware_id;
   newBind.label = rawBind.label;
   newBind.origin = rawBind.origin;
@@ -507,7 +505,7 @@ Saver.stringifyProfile = function(profile) {
 }
 
 Saver.parseStringifyBind = function(bind, profile) {
-  var raw = { alt: 0, ctrl: 0, shift: 0, hardware_id: "", rapidfire: 0, toggle: 0, label: "", origin: "", key: "" };
+  var raw = { alt: 0, ctrl: 0, shift: 0, hardware_id: "", rapidfire: 0, toggle: 0, label: "", origin: "", key: "", jra: false };
   if(bind.alt) raw.alt = 1;
   if(bind.ctrl) raw.ctrl = 1;
   if(bind.shift) raw.shift = 1;
@@ -517,6 +515,7 @@ Saver.parseStringifyBind = function(bind, profile) {
   raw.label = bind.label;
   raw.origin = bind.origin;
   raw.key = bind.key;
+  raw.jra = bind.jra;
 
   if(bind.keymap) {
     for(var a = 0;a < profile.keymaps.length;a++) {
@@ -657,6 +656,10 @@ Profile.prototype.selectBind = function(bind) {
   elem.disabled = false;
   elem.checked = bind.toggle;
 
+  var elem = document.getElementById("bind-jra");
+  elem.disabled = false;
+  elem.checked = bind.jra;
+
   var elem = document.getElementById("bind-rapidfire");
   elem.disabled = false;
   elem.value = bind.rapidfire.toString();
@@ -684,6 +687,10 @@ Profile.prototype.deselectBind = function() {
   elem.innerHTML = "";
 
   var elem = document.getElementById("bind-toggle");
+  elem.disabled = true;
+  elem.checked = false;
+
+  var elem = document.getElementById("bind-jra");
   elem.disabled = true;
   elem.checked = false;
 
@@ -820,6 +827,7 @@ Bind.prototype.initMembers = function() {
   this.origin = "";
   this.rapidfire = 0;
   this.toggle = false;
+  this.jra = false;
   this.label = "";
   this.hwid = "";
   this.keymap = null;
