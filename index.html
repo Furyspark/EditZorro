@@ -8,7 +8,7 @@
 
   <body>
     <div class="group" style="width:360px;height:80px;left:8px;top:8px">
-      <h2 id="profile-name"></h2>
+      <h2 style="cursor:default" id="profile-name"></h2>
       <button onclick="Core.buttonNew();">New</button>
       <button onclick="Core.buttonLoad();">Load</button>
       <button onclick="Core.buttonSave();">Save</button>
@@ -33,6 +33,7 @@
 
     <div class="group" style="width:792px;height:400px;left:8px;top:184px" id="group_buttons">
       <span id="button-info" style="position:absolute;width:100%;top:380px;text-align:center"></span>
+      <button onclick="Core.extendedBind();" style="position:absolute;top:350px;left:696px">Custom</button>
       <button onclick="Core.cancelBind();" style="position:absolute;top:380px;left:696px">Deselect</button>
     </div>
 

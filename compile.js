@@ -1,6 +1,9 @@
 var fs = require("fs");
 var concat = require("concatenate-files");
 
-var sources = JSON.parse(fs.readFileSync("compile-sources.json"));
+var data = JSON.parse(fs.readFileSync("compile-data.json"));
 
-concat(sources.main, "static/js/app.js", { separator: "\n" }, function(err, result) {} );
+for(var a = 0;a < data.length;a++) {
+  var subData = data[a];
+  concat(subData.sources, subData.target, { separator: "\n" }, function(err, result) {} );
+}

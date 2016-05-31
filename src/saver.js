@@ -47,12 +47,17 @@ Saver.parseBind = function(rawBind, newBind, profile) {
   newBind.hwid = rawBind.harware_id;
   newBind.label = rawBind.label;
   newBind.origin = rawBind.origin;
-  newBind.key = rawBind.key;
 
-  if(rawBind.key.match(/KEYMAP([0-9]+)/i)) {
-    var kmId = parseInt(RegExp.$1);
-    newBind.key = "";
-    newBind.keymap = profile.keymaps[kmId-1];
+  if(typeof rawBind.key === "string") {
+    newBind.key = rawBind.key;
+    if(rawBind.key.match(/KEYMAP([0-9]+)/i)) {
+      var kmId = parseInt(RegExp.$1);
+      newBind.key = "";
+      newBind.keymap = profile.keymaps[kmId-1];
+    }
+  }
+  else {
+    newBind.actions = rawBind.key;
   }
 }
 
@@ -98,6 +103,9 @@ Saver.parseStringifyBind = function(bind, profile) {
         raw.key = "keymap" + (a+1).toString();
       }
     }
+  }
+  if(bind.isCustom()) {
+    raw.key = bind.actions;
   }
 
   return raw;

@@ -1,0 +1,29 @@
+[
+  {
+    "sources": [
+      "src/header.js",
+
+      "src/core.js",
+      "src/saver.js",
+
+      "src/classes/profile.js",
+      "src/classes/keymap.js",
+      "src/classes/bind.js",
+      "src/classes/button_layout.js",
+      "src/classes/button.js",
+
+      "src/footer.js"
+    ],
+    "target": "static/js/app.js"
+  },
+  {
+    "sources": [
+      "src/extended/header.js",
+      
+      "src/extended/core.js",
+
+      "src/extended/footer.js"
+    ],
+    "target": "static/js/extended.js"
+  }
+]

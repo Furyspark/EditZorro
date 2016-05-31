@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Extended Bind...</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="static/js/extended.js"></script>
+  </head>
+
+  <body>
+    <div class="group" style="left:8px;top:8px;width:624px;height:64px">
+      <select style="position:absolute;left:4px;top:4px;width:256px">
+        <option>[Action]</option>
+      </select>
+      <label for="action-type-press" style="position:absolute;left:24px;top:28px">Press</label>
+      <input style="position:absolute;left:4px;top:28px" type="radio" name="action-type" value="press" id="action-type-press">
+      <label for="action-type-release" style="position:absolute;left:152px;top:28px">Release</label>
+      <input style="position:absolute;left:132px;top:28px" type="radio" name="action-type" value="release" id="action-type-release">
+    </div>
+    <button style="position:absolute;left:48px;top:96px;width:160px" onclick="Core.addToPress();">On Press</button>
+    <button style="position:absolute;left:472px;top:96px;width:160px" onclick="Core.addToRelease();">On Release</button>
+    <div class="group" style="left:8px;top:128px;width:200px;height:192px">
+      <h2 style="position:absolute;top:-12px;width:100%;text-align:center;font-size:10pt;cursor:default">On Press</h2>
+      <select style="position:absolute;top:16px;width:90%;height:172px" multiple id="list-onpress"></select>
+    </div>
+    <div class="group" style="left:432px;top:128px;width:200px;height:192px">
+      <h2 style="position:absolute;top:-12px;width:100%;text-align:center;font-size:10pt;cursor:default">On Release</h2>
+      <select style="position:absolute;top:16px;width:90%;height:172px" multiple id="list-onrelease"></select>
+    </div>
+  </body>
+</html>

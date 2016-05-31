@@ -49,23 +49,25 @@ Button.prototype.hide = function() {
 }
 
 Button.prototype.onClick = function() {
-  if(Core.waitForInput.active) {
-    var keymaps = Core.profile.getSelectedKeymaps();
-    if(keymaps.length === 1) {
-      var keymap = keymaps[0];
-      var bind = keymap.addBind();
-      bind.key = this.keycode.toLowerCase();
-      bind.origin = Core.waitForInput.keycode.toLowerCase();
-      bind.hwid = Core.waitForInput.hwid;
-      bind.refresh();
+  if(!Core.dialogOpen) {
+    if(Core.waitForInput.active) {
+      var keymaps = Core.profile.getSelectedKeymaps();
+      if(keymaps.length === 1) {
+        var keymap = keymaps[0];
+        var bind = keymap.addBind();
+        bind.key = this.keycode.toLowerCase();
+        bind.origin = Core.waitForInput.keycode.toLowerCase();
+        bind.hwid = Core.waitForInput.hwid;
+        bind.refresh();
+      }
+      Core.waitForInput.setActive(false);
+      Core.refresh();
     }
-    Core.waitForInput.setActive(false);
-    Core.refresh();
-  }
-  else {
-    Core.waitForInput.setActive(true);
-    Core.waitForInput.keycode = this.keycode;
-    Core.waitForInput.hwid = this.hardware_id;
-    Core.waitForInput.keymap = Core.profile.getSelectedKeymaps()[0];
+    else {
+      Core.waitForInput.setActive(true);
+      Core.waitForInput.keycode = this.keycode;
+      Core.waitForInput.hwid = this.hardware_id;
+      Core.waitForInput.keymap = Core.profile.getSelectedKeymaps()[0];
+    }
   }
 }

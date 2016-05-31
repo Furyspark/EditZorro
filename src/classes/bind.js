@@ -23,6 +23,7 @@ Bind.prototype.initMembers = function() {
   this.label = "";
   this.hwid = "";
   this.keymap = null;
+  this.actions = { press: [], release: [] };
 
   this.parent = null;
 }
@@ -33,6 +34,7 @@ Bind.prototype.remove = function() {
 
 Bind.prototype.name = function() {
   if(this.keymap) return this.origin + " -> " + this.keymap.name + (this.label !== "" ? " (" + this.label + ")" : "");
+  if(this.actions.press.length > 0 || this.actions.release.length > 0) return this.origin + " -> " + "Custom" + (this.label !== "" ? " (" + this.label + ")" : "");
   return this.origin + " -> " + this.key + (this.label !== "" ? " (" + this.label + ")" : "");
 }
 
@@ -45,4 +47,8 @@ Bind.prototype.refresh = function() {
       a--;
     }
   }
+}
+
+Bind.prototype.isCustom = function() {
+  return (this.actions.press.length > 0 || this.actions.release.length > 0);
 }

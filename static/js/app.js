@@ -1,14 +1,18 @@
 var fs = require("fs");
 var path = require("path");
 var dialog = require("electron").remote.dialog;
+var ipcRenderer = require("electron").ipcRenderer;
+
+ipcRenderer.on("dialog-closed", function(event, arg) {
+  if(arg === "extended") {
+    Core.dialogOpen = false;
+    Core.waitForInput.awaitingExtended = false;
+  }
+});
 
 function Core() {
   console.log("This is a static class.");
 }
-
-window.addEventListener("load", function() {
-  Core.start();
-});
 
 Core.start = function() {
   this.profile = null;
@@ -20,6 +24,7 @@ Core.start = function() {
     keycode: "",
     hwid: "",
     keymap: null,
+    awaitingExtended: false,
     setActive: function(value) {
       this.active = value;
       if(this.active) {
@@ -31,6 +36,7 @@ Core.start = function() {
         this.active = false;
         this.hwid = "";
         this.keymap = null;
+        this.awaitingExtended = false;
         Core.buttonInfoElem.innerHTML = "";
       }
     }
@@ -44,7 +50,9 @@ Core.start = function() {
 }
 
 Core.buttonNew = function() {
-  this.createNewProfile();
+  if(!this.dialogOpen) {
+    this.createNewProfile();
+  }
 }
 
 Core.createNewProfile = function() {
@@ -55,56 +63,61 @@ Core.createNewProfile = function() {
 }
 
 Core.buttonLoad = function() {
-  dialog.showOpenDialog({
-    title: "Select Profile",
-    filter: [
-      { name: "Profiles", extensions: ["json"] }
-    ],
-    properties: ["openFile", "createDirectory"]
-  }, function(filenames) {
-    if(filenames && filenames.length > 0) Core.loadProfile(filenames[0]);
-  });
-  // var elem = document.getElementById("loadProfileDialog");
-  // elem.addEventListener("change", function chooseFile(e) {
-  //   this.removeEventListener("change", chooseFile, false);
-  //   Core.loadProfile(this.value);
-  //   this.value = "";
-  // }, false);
-  // elem.click();
+  if(!this.dialogOpen) {
+    this.dialogOpen = true;
+    dialog.showOpenDialog({
+      title: "Select Profile",
+      filter: [
+        { name: "Profiles", extensions: ["json"] }
+      ],
+      properties: ["openFile", "createDirectory"]
+    }, function(filenames) {
+      if(filenames && filenames.length > 0) Core.loadProfile(filenames[0]);
+    });
+  }
 }
 
 Core.buttonSave = function() {
-  if(this.profileLocation.length > 0) {
-    this.saveProfile(this.profileLocation);
-  }
-  else {
-    this.buttonSaveAs();
+  if(!this.dialogOpen) {
+    if(this.profileLocation.length > 0) {
+      this.saveProfile(this.profileLocation);
+    }
+    else {
+      this.buttonSaveAs();
+    }
   }
 }
 
 Core.buttonSaveAs = function() {
-  dialog.showSaveDialog({
-    title: "Save Profile",
-    filters: [
-      { name: "Profiles", extensions: ["json"] }
-    ]
-  }, function(filename) {
-    if(filename) Core.saveProfile(filename);
-  });
+  if(!this.dialogOpen) {
+    this.dialogOpen = true;
+    dialog.showSaveDialog({
+      title: "Save Profile",
+      filters: [
+        { name: "Profiles", extensions: ["json"] }
+      ]
+    }, function(filename) {
+      if(filename) Core.saveProfile(filename);
+    });
+  }
 }
 
 Core.buttonAddKeymap = function() {
-  this.profile.addKeymap();
+  if(!dialogOpen) this.profile.addKeymap();
 }
 
 Core.buttonRemoveKeymap = function() {
-  var arr = this.profile.getSelectedKeymaps();
-  while(arr.length > 0) arr.shift().remove();
+  if(!dialogOpen) {
+    var arr = this.profile.getSelectedKeymaps();
+    while(arr.length > 0) arr.shift().remove();
+  }
 }
 
 Core.buttonRemoveBind = function() {
-  var arr = this.profile.getSelectedBinds();
-  while(arr.length > 0) arr.shift().remove();
+  if(!dialogOpen) {
+    var arr = this.profile.getSelectedBinds();
+    while(arr.length > 0) arr.shift().remove();
+  }
 }
 
 Core.loadProfile = function(file) {
@@ -194,7 +207,7 @@ Core.refresh = function() {
 }
 
 Core.selectKeymap = function() {
-  if(this.waitForInput.active && this.waitForInput.keymap === this.profile.keymaps[0]) {
+  if(this.waitForInput.active && this.waitForInput.keymap === this.profile.keymaps[0] && !this.dialogOpen) {
     var keymaps = this.profile.getSelectedKeymaps();
     if(keymaps.length > 0 && keymaps[0] !== this.profile.keymaps[0]) {
       var keymap = keymaps[0];
@@ -220,7 +233,9 @@ Core.selectBind = function() {
 }
 
 Core.cancelBind = function() {
-  this.waitForInput.setActive(false);
+  if(!this.dialogOpen) {
+    this.waitForInput.setActive(false);
+  }
 }
 
 Core.loadButtons = function() {
@@ -320,24 +335,26 @@ Core.inputButtonLayoutRefresh = function() {
 }
 
 Core.keyUp = function(e) {
-  var key = e.code;
-  var ctrl = e.ctrlKey;
-  var shift = e.shiftKey;
-  var alt = e.altKey;
+  if(!this.dialogOpen) {
+    var key = e.code;
+    var ctrl = e.ctrlKey;
+    var shift = e.shiftKey;
+    var alt = e.altKey;
 
-  if(this.waitForInput.active) {
-    var bind = this.profile.addBind();
-    if(bind) {
-      bind.origin = this.waitForInput.keycode.toLowerCase();
-      bind.key = this.getKeyFromCode(key);
-      bind.ctrl = ctrl;
-      bind.shift = shift;
-      bind.alt = alt;
-      bind.hwid = this.waitForInput.hwid;
+    if(this.waitForInput.active) {
+      var bind = this.profile.addBind();
+      if(bind) {
+        bind.origin = this.waitForInput.keycode.toLowerCase();
+        bind.key = this.getKeyFromCode(key);
+        bind.ctrl = ctrl;
+        bind.shift = shift;
+        bind.alt = alt;
+        bind.hwid = this.waitForInput.hwid;
 
-      bind.refresh();
-      this.waitForInput.setActive(false);
-      this.refresh();
+        bind.refresh();
+        this.waitForInput.setActive(false);
+        this.refresh();
+      }
     }
   }
 }
@@ -428,6 +445,14 @@ Core.getKeyFromCode = function(key) {
       }
       return key.toLowerCase();
       break;
+  }
+}
+
+Core.extendedBind = function() {
+  if(this.waitForInput.active && !this.dialogOpen) {
+    this.dialogOpen = true;
+    this.waitForInput.awaitingExtended = true;
+    ipcRenderer.send("open-window-extended", [this.waitForInput.keycode]);
   }
 }
 
@@ -954,23 +979,29 @@ Button.prototype.hide = function() {
 }
 
 Button.prototype.onClick = function() {
-  if(Core.waitForInput.active) {
-    var keymaps = Core.profile.getSelectedKeymaps();
-    if(keymaps.length === 1) {
-      var keymap = keymaps[0];
-      var bind = keymap.addBind();
-      bind.key = this.keycode.toLowerCase();
-      bind.origin = Core.waitForInput.keycode.toLowerCase();
-      bind.hwid = Core.waitForInput.hwid;
-      bind.refresh();
+  if(!Core.dialogOpen) {
+    if(Core.waitForInput.active) {
+      var keymaps = Core.profile.getSelectedKeymaps();
+      if(keymaps.length === 1) {
+        var keymap = keymaps[0];
+        var bind = keymap.addBind();
+        bind.key = this.keycode.toLowerCase();
+        bind.origin = Core.waitForInput.keycode.toLowerCase();
+        bind.hwid = Core.waitForInput.hwid;
+        bind.refresh();
+      }
+      Core.waitForInput.setActive(false);
+      Core.refresh();
     }
-    Core.waitForInput.setActive(false);
-    Core.refresh();
-  }
-  else {
-    Core.waitForInput.setActive(true);
-    Core.waitForInput.keycode = this.keycode;
-    Core.waitForInput.hwid = this.hardware_id;
-    Core.waitForInput.keymap = Core.profile.getSelectedKeymaps()[0];
+    else {
+      Core.waitForInput.setActive(true);
+      Core.waitForInput.keycode = this.keycode;
+      Core.waitForInput.hwid = this.hardware_id;
+      Core.waitForInput.keymap = Core.profile.getSelectedKeymaps()[0];
+    }
   }
 }
+
+window.addEventListener("load", function() {
+  Core.start();
+});
