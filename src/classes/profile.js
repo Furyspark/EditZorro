@@ -6,6 +6,7 @@ Profile.prototype.constructor = Profile;
 
 Profile.prototype.initialize = function() {
   this.initMembers();
+  document.getElementById("profile-enable-defaults").checked = false;
 }
 
 Profile.prototype.initMembers = function() {

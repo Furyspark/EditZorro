@@ -64,13 +64,6 @@ Core.buttonLoad = function() {
   }, function(filenames) {
     if(filenames && filenames.length > 0) Core.loadProfile(filenames[0]);
   });
-  // var elem = document.getElementById("loadProfileDialog");
-  // elem.addEventListener("change", function chooseFile(e) {
-  //   this.removeEventListener("change", chooseFile, false);
-  //   Core.loadProfile(this.value);
-  //   this.value = "";
-  // }, false);
-  // elem.click();
 }
 
 Core.buttonSave = function() {

@@ -13,6 +13,11 @@
       <button onclick="Core.buttonLoad();">Load</button>
       <button onclick="Core.buttonSave();">Save</button>
       <button onclick="Core.buttonSaveAs();">Save As</button>
+
+      <!-- Enable Defaults -->
+      <label style="position:absolute;left:30px;top:70px" for="profile-enable-defaults">Enable Defaults</label>
+      <input type="checkbox" style="position:absolute;left:10px;top:70px" id="profile-enable-defaults"/>
+
       <input style="display:none" id="loadProfileDialog" type="file" accept=".json"/>
       <input style="display:none" id="saveProfileDialog" type="file" nwsaveas/>
     </div>

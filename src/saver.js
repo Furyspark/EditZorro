@@ -4,6 +4,10 @@ function Saver() {
 
 Saver.parseProfile = function(obj) {
   var profile = new Profile();
+  // Add profile options
+  if(obj.options) {
+    if(obj.options.enableDefaults) document.getElementById("profile-enable-defaults").checked = obj.options.enableDefaults;
+  }
   // Add keymaps
   for(var a = 0;a < obj.keymaps.length;a++) {
     var keymap = obj.keymaps[a];
@@ -55,7 +59,8 @@ Saver.parseBind = function(rawBind, newBind, profile) {
 Saver.stringifyProfile = function(profile) {
   var result = {
     bindings: [],
-    keymaps: []
+    keymaps: [],
+    options: {}
   };
 
   for(var a = 0;a < profile.keymaps.length;a++) {
@@ -67,6 +72,8 @@ Saver.stringifyProfile = function(profile) {
       result.bindings[a].push(this.parseStringifyBind(bind, profile));
     }
   }
+
+  result.options.enableDefaults = document.getElementById("profile-enable-defaults").checked;
 
   return JSON.stringify(result);
 }
