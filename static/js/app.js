@@ -73,6 +73,7 @@ Core.buttonLoad = function() {
       properties: ["openFile", "createDirectory"]
     }, function(filenames) {
       if(filenames && filenames.length > 0) Core.loadProfile(filenames[0]);
+      else Core.cancelDialog();
     });
   }
 }
@@ -98,6 +99,7 @@ Core.buttonSaveAs = function() {
       ]
     }, function(filename) {
       if(filename) Core.saveProfile(filename);
+      else Core.cancelDialog();
     });
   }
 }
@@ -140,6 +142,11 @@ Core.saveProfile = function(file) {
   fs.writeFile(file, Saver.stringifyProfile(this.profile), function() {
     Core.dialogOpen = false;
   });
+}
+
+Core.cancelDialog = function() {
+  this.dialogOpen = false;
+  this.refresh();
 }
 
 Core.refresh = function() {
