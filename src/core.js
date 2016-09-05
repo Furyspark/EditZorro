@@ -91,18 +91,18 @@ Core.buttonSaveAs = function() {
 }
 
 Core.buttonAddKeymap = function() {
-  if(!dialogOpen) this.profile.addKeymap();
+  if(!this.dialogOpen) this.profile.addKeymap();
 }
 
 Core.buttonRemoveKeymap = function() {
-  if(!dialogOpen) {
+  if(!this.dialogOpen) {
     var arr = this.profile.getSelectedKeymaps();
     while(arr.length > 0) arr.shift().remove();
   }
 }
 
 Core.buttonRemoveBind = function() {
-  if(!dialogOpen) {
+  if(!this.dialogOpen) {
     var arr = this.profile.getSelectedBinds();
     while(arr.length > 0) arr.shift().remove();
   }

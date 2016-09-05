@@ -103,18 +103,18 @@ Core.buttonSaveAs = function() {
 }
 
 Core.buttonAddKeymap = function() {
-  if(!dialogOpen) this.profile.addKeymap();
+  if(!this.dialogOpen) this.profile.addKeymap();
 }
 
 Core.buttonRemoveKeymap = function() {
-  if(!dialogOpen) {
+  if(!this.dialogOpen) {
     var arr = this.profile.getSelectedKeymaps();
     while(arr.length > 0) arr.shift().remove();
   }
 }
 
 Core.buttonRemoveBind = function() {
-  if(!dialogOpen) {
+  if(!this.dialogOpen) {
     var arr = this.profile.getSelectedBinds();
     while(arr.length > 0) arr.shift().remove();
   }
@@ -505,12 +505,17 @@ Saver.parseBind = function(rawBind, newBind, profile) {
   newBind.hwid = rawBind.harware_id;
   newBind.label = rawBind.label;
   newBind.origin = rawBind.origin;
-  newBind.key = rawBind.key;
 
-  if(rawBind.key.match(/KEYMAP([0-9]+)/i)) {
-    var kmId = parseInt(RegExp.$1);
-    newBind.key = "";
-    newBind.keymap = profile.keymaps[kmId-1];
+  if(typeof rawBind.key === "string") {
+    newBind.key = rawBind.key;
+    if(rawBind.key.match(/KEYMAP([0-9]+)/i)) {
+      var kmId = parseInt(RegExp.$1);
+      newBind.key = "";
+      newBind.keymap = profile.keymaps[kmId-1];
+    }
+  }
+  else {
+    newBind.actions = rawBind.key;
   }
 }
 
@@ -556,6 +561,9 @@ Saver.parseStringifyBind = function(bind, profile) {
         raw.key = "keymap" + (a+1).toString();
       }
     }
+  }
+  if(bind.isCustom()) {
+    raw.key = bind.actions;
   }
 
   return raw;
@@ -864,6 +872,7 @@ Bind.prototype.initMembers = function() {
   this.label = "";
   this.hwid = "";
   this.keymap = null;
+  this.actions = { press: [], release: [] };
 
   this.parent = null;
 }
@@ -874,6 +883,7 @@ Bind.prototype.remove = function() {
 
 Bind.prototype.name = function() {
   if(this.keymap) return this.origin + " -> " + this.keymap.name + (this.label !== "" ? " (" + this.label + ")" : "");
+  if(this.actions.press.length > 0 || this.actions.release.length > 0) return this.origin + " -> " + "Custom" + (this.label !== "" ? " (" + this.label + ")" : "");
   return this.origin + " -> " + this.key + (this.label !== "" ? " (" + this.label + ")" : "");
 }
 
@@ -886,6 +896,10 @@ Bind.prototype.refresh = function() {
       a--;
     }
   }
+}
+
+Bind.prototype.isCustom = function() {
+  return (this.actions.press.length > 0 || this.actions.release.length > 0);
 }
 
 function Button_Layout() {
