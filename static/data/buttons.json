@@ -972,7 +972,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "v",
@@ -981,7 +981,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": ">",
@@ -990,7 +990,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "^",
@@ -999,7 +999,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "Z",
@@ -1008,7 +1008,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "X",
@@ -1017,7 +1017,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "C",
@@ -1026,7 +1026,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "V",
@@ -1035,7 +1035,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "B",
@@ -1044,7 +1044,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "A",
@@ -1053,7 +1053,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "S",
@@ -1062,7 +1062,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "D",
@@ -1071,7 +1071,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "F",
@@ -1080,7 +1080,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "G",
@@ -1089,7 +1089,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "Q",
@@ -1098,7 +1098,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "W",
@@ -1107,7 +1107,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "E",
@@ -1116,7 +1116,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "R",
@@ -1125,7 +1125,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "T",
@@ -1134,7 +1134,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "1",
@@ -1143,7 +1143,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "2",
@@ -1152,7 +1152,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "3",
@@ -1161,7 +1161,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "4",
@@ -1170,7 +1170,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		},
 		{
 			"label": "5",
@@ -1179,7 +1179,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0113&REV_0200&MI_00"
+			"hardware_id": "any"
 		}
 	],
 	"g13": [
@@ -1190,7 +1190,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "v",
@@ -1199,7 +1199,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": ">",
@@ -1208,7 +1208,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "^",
@@ -1217,7 +1217,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "Z",
@@ -1226,7 +1226,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "X",
@@ -1235,7 +1235,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "C",
@@ -1244,7 +1244,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "A",
@@ -1253,7 +1253,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "S",
@@ -1262,7 +1262,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "D",
@@ -1271,7 +1271,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "F",
@@ -1280,7 +1280,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "G",
@@ -1289,7 +1289,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "Q",
@@ -1298,7 +1298,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "W",
@@ -1307,7 +1307,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "E",
@@ -1316,7 +1316,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "R",
@@ -1325,7 +1325,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "T",
@@ -1334,7 +1334,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "Y",
@@ -1343,7 +1343,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "U",
@@ -1352,7 +1352,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "1",
@@ -1361,7 +1361,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "2",
@@ -1370,7 +1370,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "3",
@@ -1379,7 +1379,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "4",
@@ -1388,7 +1388,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "5",
@@ -1397,7 +1397,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "6",
@@ -1406,7 +1406,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "7",
@@ -1415,7 +1415,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		}
 	],
 	"naga": [
@@ -1426,7 +1426,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "9",
@@ -1435,7 +1435,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "0",
@@ -1444,7 +1444,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "I",
@@ -1453,7 +1453,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "O",
@@ -1462,7 +1462,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "P",
@@ -1471,7 +1471,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "K",
@@ -1480,7 +1480,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "L",
@@ -1489,7 +1489,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": ";",
@@ -1498,7 +1498,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "U",
@@ -1507,7 +1507,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "J",
@@ -1516,7 +1516,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		},
 		{
 			"label": "M",
@@ -1525,7 +1525,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1532&PID_0040&REV_0200&MI_02"
+			"hardware_id": "any"
 		}
 	],
 	"g600": [
@@ -1536,7 +1536,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "9",
@@ -1545,7 +1545,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "0",
@@ -1554,7 +1554,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "I",
@@ -1563,7 +1563,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "O",
@@ -1572,7 +1572,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "P",
@@ -1581,7 +1581,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "K",
@@ -1590,7 +1590,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "L",
@@ -1599,7 +1599,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": ";",
@@ -1608,7 +1608,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": ",",
@@ -1617,7 +1617,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": ".",
@@ -1626,7 +1626,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "/",
@@ -1635,7 +1635,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		},
 		{
 			"label": "M",
@@ -1644,7 +1644,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_046D&PID_C232"
+			"hardware_id": "any"
 		}
 	],
 	"nyth": [
@@ -1655,7 +1655,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "9",
@@ -1664,7 +1664,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "0",
@@ -1673,7 +1673,7 @@
 			"y": 260,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "I",
@@ -1682,7 +1682,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "O",
@@ -1691,7 +1691,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "P",
@@ -1700,7 +1700,7 @@
 			"y": 290,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "K",
@@ -1709,7 +1709,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "L",
@@ -1718,7 +1718,7 @@
 			"y": 320,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		},
 		{
 			"label": "M",
@@ -1727,7 +1727,7 @@
 			"y": 350,
 			"width": 20,
 			"height": 20,
-			"hardware_id": "HID\\VID_1E7D&PID_2E7C&REV_0100&MI_01"
+			"hardware_id": "any"
 		}
   ],
 	"scimitar": [
