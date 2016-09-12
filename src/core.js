@@ -348,6 +348,7 @@ Core.keyUp = function(e) {
 
         bind.refresh();
         this.waitForInput.setActive(false);
+        this.refresh();
       }
     }
   }
