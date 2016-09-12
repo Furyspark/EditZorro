@@ -478,9 +478,18 @@
 			"hardware_id": "any"
 		},
 		{
+			"label": "LWin",
+			"keycode": "lwin",
+			"x": 55,
+			"y": 140,
+			"width": 35,
+			"height": 20,
+			"hardware_id": "any"
+		},
+		{
 			"label": "LAlt",
 			"keycode": "lalt",
-			"x": 55,
+			"x": 100,
 			"y": 140,
 			"width": 35,
 			"height": 20,
@@ -714,7 +723,7 @@
 		{
 			"label": "Space",
 			"keycode": "space",
-			"x": 100,
+			"x": 145,
 			"y": 140,
 			"width": 170,
 			"height": 20,
