@@ -238,8 +238,8 @@ Core.loadButtons = function() {
     if(err) throw err;
     var btnConf = JSON.parse(data.toString());
     for(var a in btnConf) {
-      Core.buttonLayouts[a] = new Button_Layout(btnConf[a]);
-      if(a !== "buttons") Core.buttonLayouts[a].hide();
+      Core.buttonLayouts[a] = new Button_Layout(btnConf[a], a);
+      if(a !== "any") Core.buttonLayouts[a].hide();
     }
     Core.loadDevices();
   });
@@ -348,7 +348,6 @@ Core.keyUp = function(e) {
 
         bind.refresh();
         this.waitForInput.setActive(false);
-        this.refresh();
       }
     }
   }

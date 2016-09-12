@@ -83,3 +83,10 @@ Keymap.prototype.deselect = function() {
   }
   Core.refresh();
 }
+
+Keymap.prototype.getBind = function(origin, hwid) {
+  for(var a = 0;a < this.binds.length;a++) {
+    var bind = this.binds[a];
+    console.log(bind);
+  }
+}

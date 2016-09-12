@@ -4,10 +4,10 @@ function Button() {
 
 Button.prototype.constructor = Button;
 
-Button.prototype.initialize = function(parent, conf) {
+Button.prototype.initialize = function(parent, conf, hwid) {
   this.initMembers();
   this.parent = parent;
-  this.setup(conf);
+  this.setup(conf, hwid);
 }
 
 Button.prototype.initMembers = function() {
@@ -20,14 +20,14 @@ Button.prototype.initMembers = function() {
   this.hardware_id = "";
 }
 
-Button.prototype.setup = function(conf) {
+Button.prototype.setup = function(conf, hwid) {
   this.label = conf.label;
   this.keycode = conf.keycode;
   this.x = conf.x;
   this.y = conf.y;
   this.width = conf.width;
   this.height = conf.height;
-  this.hardware_id = conf.hardware_id;
+  this.hardware_id = hwid;
 
   this.elem = document.createElement("button");
   this.elem.style.position = "absolute";

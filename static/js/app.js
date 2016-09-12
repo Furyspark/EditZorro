@@ -250,8 +250,8 @@ Core.loadButtons = function() {
     if(err) throw err;
     var btnConf = JSON.parse(data.toString());
     for(var a in btnConf) {
-      Core.buttonLayouts[a] = new Button_Layout(btnConf[a]);
-      if(a !== "buttons") Core.buttonLayouts[a].hide();
+      Core.buttonLayouts[a] = new Button_Layout(btnConf[a], a);
+      if(a !== "any") Core.buttonLayouts[a].hide();
     }
     Core.loadDevices();
   });
@@ -360,7 +360,6 @@ Core.keyUp = function(e) {
 
         bind.refresh();
         this.waitForInput.setActive(false);
-        this.refresh();
       }
     }
   }
@@ -854,6 +853,13 @@ Keymap.prototype.deselect = function() {
   Core.refresh();
 }
 
+Keymap.prototype.getBind = function(origin, hwid) {
+  for(var a = 0;a < this.binds.length;a++) {
+    var bind = this.binds[a];
+    console.log(bind);
+  }
+}
+
 function Bind() {
   this.initialize.apply(this, arguments);
 }
@@ -889,16 +895,16 @@ Bind.prototype.remove = function() {
 }
 
 Bind.prototype.name = function() {
-  if(this.keymap) return this.origin + " -> " + this.keymap.name + (this.label !== "" ? " (" + this.label + ")" : "");
-  if(this.actions.press.length > 0 || this.actions.release.length > 0) return this.origin + " -> " + "Custom" + (this.label !== "" ? " (" + this.label + ")" : "");
-  return this.origin + " -> " + this.key + (this.label !== "" ? " (" + this.label + ")" : "");
+  if(this.keymap) return "[" + this.hwid + "] " + this.origin + " -> " + this.keymap.name + (this.label !== "" ? " (" + this.label + ")" : "");
+  // if(this.actions.press.length > 0 || this.actions.release.length > 0) return this.origin + " -> " + "Custom" + (this.label !== "" ? " (" + this.label + ")" : "");
+  return "[" + this.hwid + "] " + this.origin + " -> " + this.key + (this.label !== "" ? " (" + this.label + ")" : "");
 }
 
 Bind.prototype.refresh = function() {
-  // Remove old bind with same origin in same keymap
+  // Remove old bind with same origin and hwid in same keymap
   for(var a = 0;a < this.parent.binds.length;a++) {
     var bind = this.parent.binds[a];
-    if(bind !== this && bind.origin == this.origin) {
+    if(bind !== this && bind.origin === this.origin && bind.hwid === this.hwid) {
       bind.remove();
       a--;
     }
@@ -915,19 +921,19 @@ function Button_Layout() {
 
 Button_Layout.prototype.constructor = Button_Layout;
 
-Button_Layout.prototype.initialize = function(conf) {
+Button_Layout.prototype.initialize = function(conf, hwid) {
   this.initMembers();
-  this.setup(conf);
+  this.setup(conf, hwid);
 }
 
 Button_Layout.prototype.initMembers = function() {
   this.buttons = [];
 }
 
-Button_Layout.prototype.setup = function(conf) {
+Button_Layout.prototype.setup = function(conf, hwid) {
   for(var a = 0;a < conf.length;a++) {
     var btn = conf[a];
-    this.addButton(btn);
+    this.addButton(btn, hwid);
   }
 }
 
@@ -943,8 +949,8 @@ Button_Layout.prototype.hide = function() {
   });
 }
 
-Button_Layout.prototype.addButton = function(src) {
-  var btn = new Button(this, src);
+Button_Layout.prototype.addButton = function(src, hwid) {
+  var btn = new Button(this, src, hwid);
   this.buttons.push(btn);
   return btn;
 }
@@ -955,10 +961,10 @@ function Button() {
 
 Button.prototype.constructor = Button;
 
-Button.prototype.initialize = function(parent, conf) {
+Button.prototype.initialize = function(parent, conf, hwid) {
   this.initMembers();
   this.parent = parent;
-  this.setup(conf);
+  this.setup(conf, hwid);
 }
 
 Button.prototype.initMembers = function() {
@@ -971,14 +977,14 @@ Button.prototype.initMembers = function() {
   this.hardware_id = "";
 }
 
-Button.prototype.setup = function(conf) {
+Button.prototype.setup = function(conf, hwid) {
   this.label = conf.label;
   this.keycode = conf.keycode;
   this.x = conf.x;
   this.y = conf.y;
   this.width = conf.width;
   this.height = conf.height;
-  this.hardware_id = conf.hardware_id;
+  this.hardware_id = hwid;
 
   this.elem = document.createElement("button");
   this.elem.style.position = "absolute";

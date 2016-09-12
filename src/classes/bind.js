@@ -33,16 +33,16 @@ Bind.prototype.remove = function() {
 }
 
 Bind.prototype.name = function() {
-  if(this.keymap) return this.origin + " -> " + this.keymap.name + (this.label !== "" ? " (" + this.label + ")" : "");
-  if(this.actions.press.length > 0 || this.actions.release.length > 0) return this.origin + " -> " + "Custom" + (this.label !== "" ? " (" + this.label + ")" : "");
-  return this.origin + " -> " + this.key + (this.label !== "" ? " (" + this.label + ")" : "");
+  if(this.keymap) return "[" + this.hwid + "] " + this.origin + " -> " + this.keymap.name + (this.label !== "" ? " (" + this.label + ")" : "");
+  // if(this.actions.press.length > 0 || this.actions.release.length > 0) return this.origin + " -> " + "Custom" + (this.label !== "" ? " (" + this.label + ")" : "");
+  return "[" + this.hwid + "] " + this.origin + " -> " + this.key + (this.label !== "" ? " (" + this.label + ")" : "");
 }
 
 Bind.prototype.refresh = function() {
-  // Remove old bind with same origin in same keymap
+  // Remove old bind with same origin and hwid in same keymap
   for(var a = 0;a < this.parent.binds.length;a++) {
     var bind = this.parent.binds[a];
-    if(bind !== this && bind.origin == this.origin) {
+    if(bind !== this && bind.origin === this.origin && bind.hwid === this.hwid) {
       bind.remove();
       a--;
     }
