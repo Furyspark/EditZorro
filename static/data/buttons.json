@@ -1011,6 +1011,15 @@
 			"hardware_id": "any"
 		},
 		{
+			"label": "Esc",
+			"keycode": "escape",
+			"x": 280,
+			"y": 350,
+			"width": 20,
+			"height": 20,
+			"hardware_id": "any"
+		},
+		{
 			"label": "Z",
 			"keycode": "Z",
 			"x": 20,
