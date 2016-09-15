@@ -44,7 +44,7 @@ Saver.parseBind = function(rawBind, newBind, profile) {
 
   if(rawBind.jra) newBind.jra = rawBind.jra;
 
-  newBind.hwid = rawBind.harware_id;
+  newBind.hwid = rawBind.hardware_id;
   newBind.label = rawBind.label;
   newBind.origin = rawBind.origin;
 
@@ -59,6 +59,7 @@ Saver.parseBind = function(rawBind, newBind, profile) {
   else {
     newBind.actions = rawBind.key;
   }
+
 }
 
 Saver.stringifyProfile = function(profile) {
