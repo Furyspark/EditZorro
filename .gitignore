@@ -2,3 +2,4 @@ node_modules
 bin
 static/js/app.js
 .atom-build.json
+*.sublime*
