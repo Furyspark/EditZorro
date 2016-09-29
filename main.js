@@ -37,6 +37,7 @@ function createMainWindow() {
   mainWindow = new BrowserWindow({ width: 1360, height: 720 });
 
   mainWindow.loadURL("file://" + __dirname + "/index.html");
+  mainWindow.maximize();
 
   mainWindow.webContents.openDevTools({ mode: "detach" });
 
