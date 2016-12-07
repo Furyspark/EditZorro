@@ -55,12 +55,17 @@ button:hover {
 
 #group_action {
   width: 36em;
-  height: 12em;
+  height: 16em;
 }
 
 #group_deviceselection {
   width: 14em;
   height: 10em;
+}
+
+#group_extraactions {
+  width: 30em;
+  height: 30em;
 }
 
 #profile-name {
@@ -115,5 +120,11 @@ button:hover {
 }
 
 #bind-rapidfire {
+  margin: 1em;
+}
+
+
+/* Extra Actions */
+.extraparam_text {
   margin: 1em;
 }

@@ -59,8 +59,8 @@
       <!-- Japanese Run Assist -->
       <input type="checkbox" id="bind-jra" onclick="Core.inputBindRefresh();"/>
       <label for="bind-jra" id="bind-jra-label">JRA</label>
+      <br>
     </div>
-  </body>
 
     <div class="group" id="group_buttons">
       <span id="button-info" style="position:absolute;width:100%;top:380px;text-align:center"></span>
@@ -68,12 +68,17 @@
       <button onclick="Core.cancelBind();" style="position:absolute;top:380px;left:820px">Deselect</button>
     </div>
 
-  <div class="group" id="group_deviceselection">
-    <select style="position:absolute;left:4px;top:4px;width:160px" id="hw-select-mice" onclick="Core.inputButtonLayoutRefresh();">
-      <option>[Mice]</option>
-    </select>
-    <select style="position:absolute;left:4px;top:32px;width:160px" id="hw-select-lhc" onclick="Core.inputButtonLayoutRefresh();">
-      <option>[LHC]</option>
-    </select>
-  </div>
+    <div class="group" id="group_deviceselection">
+      <select style="position:absolute;left:4px;top:4px;width:160px" id="hw-select-mice" onclick="Core.inputButtonLayoutRefresh();">
+        <option>[Mice]</option>
+      </select>
+      <select style="position:absolute;left:4px;top:32px;width:160px" id="hw-select-lhc" onclick="Core.inputButtonLayoutRefresh();">
+        <option>[LHC]</option>
+      </select>
+    </div>
+
+    <div class="group" id="group_extraactions">
+      <button onclick="Core.extraAction('loadprofile');">Load Profile</button>
+    </div>
+  </body>
 </html>

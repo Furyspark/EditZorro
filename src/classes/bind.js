@@ -24,6 +24,7 @@ Bind.prototype.initMembers = function() {
   this.hwid = "";
   this.keymap = null;
   this.actions = { press: [], release: [] };
+  this.extraParams = [];
 
   this.parent = null;
 }

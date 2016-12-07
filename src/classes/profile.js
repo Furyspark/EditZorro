@@ -145,6 +145,8 @@ Profile.prototype.selectBind = function(bind) {
   var elem = document.getElementById("bind-alt");
   elem.disabled = false;
   elem.checked = bind.alt;
+
+  this.selectBindExtraAction(bind);
 }
 
 Profile.prototype.deselectBind = function() {
@@ -179,6 +181,21 @@ Profile.prototype.deselectBind = function() {
   var elem = document.getElementById("bind-alt");
   elem.disabled = true;
   elem.checked = false;
+
+  Core.clearExtraParamInputs();
+}
+
+Profile.prototype.selectBindExtraAction = function(bind) {
+  if(bind.key.match(/EA:(.+)/i)) {
+    var action = RegExp.$1;
+    var params = action.split(",");
+    action = params[0];
+    params.splice(0, 1);
+    // Load profile
+    if(action.toUpperCase() === "LOADPROFILE") {
+      Core.setExtraParamInputs(bind, [{name: "Category", type: "text", value: bind.extraParams[0]}, {name: "Filename", type: "text", value: bind.extraParams[1]}]);
+    }
+  }
 }
 
 Profile.prototype.addBind = function() {

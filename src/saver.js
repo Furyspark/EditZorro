@@ -48,6 +48,8 @@ Saver.parseBind = function(rawBind, newBind, profile) {
   newBind.label = rawBind.label;
   newBind.origin = rawBind.origin;
 
+  if(rawBind.extra_params) newBind.extraParams = rawBind.extra_params;
+
   if(typeof rawBind.key === "string") {
     newBind.key = rawBind.key;
     if(rawBind.key.match(/KEYMAP([0-9]+)/i)) {
@@ -96,6 +98,7 @@ Saver.parseStringifyBind = function(bind, profile) {
   raw.origin = bind.origin;
   raw.key = bind.key;
   raw.jra = bind.jra;
+  if(bind.extraParams.length && bind.extraParams.length > 0) raw.extra_params = bind.extraParams;
 
   if(bind.keymap) {
     for(var a = 0;a < profile.keymaps.length;a++) {

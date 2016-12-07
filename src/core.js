@@ -30,6 +30,7 @@ Core.start = function() {
     }
   };
   this.buttonInfoElem = document.getElementById("button-info");
+  this.extraParamInputs = [];
 
   this.createNewProfile();
   this.loadButtons();
@@ -108,6 +109,7 @@ Core.buttonRemoveBind = function() {
     var arr = this.profile.getSelectedBinds();
     while(arr.length > 0) arr.shift().remove();
   }
+  this.refresh();
 }
 
 Core.loadProfile = function(file) {
@@ -138,6 +140,9 @@ Core.cancelDialog = function() {
 }
 
 Core.refresh = function() {
+  // Remove extra param inputs
+  this.clearExtraParamInputs();
+
   // Add/remove keymaps
   var elem = this.profile.keymapListElem;
   var selects = [];
@@ -230,6 +235,21 @@ Core.selectBind = function() {
 Core.cancelBind = function() {
   if(!this.dialogOpen) {
     this.waitForInput.setActive(false);
+  }
+}
+
+Core.extraAction = function(type) {
+  if(this.waitForInput.active) {
+    var bind = this.profile.addBind();
+    if(bind) {
+      bind.origin = this.waitForInput.keycode.toLowerCase();
+      bind.key = "ea:" + type;
+      bind.hwid = this.waitForInput.hwid;
+
+      bind.refresh();
+      this.waitForInput.setActive(false);
+      this.refresh();
+    }
   }
 }
 
@@ -326,6 +346,47 @@ Core.inputButtonLayoutRefresh = function() {
       if(node.selected) layout.show();
       else layout.hide();
     }
+  }
+}
+
+Core.setExtraParamInputs = function(bind, params) {
+  this.clearExtraParamInputs();
+  for(var a = 0;a < params.length;a++) {
+    var obj = params[a];
+    var key = "extraparam" + a.toString() + "_" + obj.type;
+    this.createExtraParam_Text(bind, a, obj);
+    // Label
+    // if(obj.type !== "text") {
+    //   var elem = document.createElement("label");
+    //   elem.for = key;
+    //   elem.id = "extraparam" + a.toString() + "_label";
+    //   elem.className = "extraparam_label";
+    //   elem.innerHTML = obj.name;
+    //   parentElem.appendChild(elem);
+    // }
+  }
+}
+
+Core.createExtraParam_Text = function(bind, index, obj) {
+  var key = "extraparam" + index.toString() + "_text";
+  var elem = document.createElement("input");
+  this.extraParamInputs.push(elem);
+  elem.type = "text";
+  elem.id = key;
+  elem.className = "extraparam_text";
+  elem.placeholder = obj.name;
+  if(obj.value) elem.value = obj.value;
+  document.getElementById("group_action").appendChild(elem);
+  // Add input handler
+  elem.oninput = function() {
+    bind.extraParams[index] = elem.value;
+  };
+}
+
+Core.clearExtraParamInputs = function() {
+  while(this.extraParamInputs.length > 0) {
+    var obj = this.extraParamInputs.splice(0, 1)[0];
+    obj.remove();
   }
 }
 
